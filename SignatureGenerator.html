@@ -1,0 +1,201 @@
+<html lang="en"><head>
+    <meta charset="UTF-8"> 
+    <title>
+        Signature Generator
+    </title>
+  
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
+
+ 	<script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+  	<script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+	
+    <style>
+		.city {display:none;}
+	</style>
+<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+
+<script type="text/javascript">
+var img;
+$(document).ready(function(){
+  $('#image_container img').click(function(){
+    //remove border on any images that might be selected
+    $('#image_container img').removeClass("img_border")
+    // set the img-source as value of image_from_list
+	img = $(this).attr('src');
+    $('#image_name').val(img);
+      $('#data_value').val( $(this).attr("id") );
+    //add border to a clicked image
+    $(this).addClass("img_border")
+});
+});
+</script>
+
+<style>
+    .img_border {
+        border: 2px solid red;
+    }
+</style>
+
+</head>
+<body cz-shortcut-listen="true">
+<div id="wrap">
+<h1 align="center" style="margin-bottom:0%">Signature Generator [Beta]</h1>
+<p align="center" style="margin-left:20%;"> powered by Eduardo Vargas</p>
+<div id="grid">
+		<div class="column1" id="col1">
+		<div class="step" id="step1">
+			<div class="number">
+				<span>1</span>
+			</div>
+			<div class="title">
+				<h1>Information</h1>
+			</div>
+		</div>
+		<div class="content" id="address">
+		  <form  id = "basicInfo" method ="GET" class="go-right">
+                <p ></p>
+					<div>
+					<input type="name" name="first" value="" id="first_name" placeholder="First Name" data-trigger="change" data-type="name"/>
+					</div>
+			
+					<div>
+					<input type="name" name="last" value="" id="last_name" placeholder="Last Name" data-trigger="change" data-type="name"/>
+					</div>
+
+					
+					<div>
+					<input type="phone" name="phone" value="" id="telephone" placeholder="Phone +1 404 123 4456" data-trigger="change"data-type="number"/>
+					</div>
+                    
+					<div>
+					<input type="text" name="email" value="" id="mail" placeholder="Email@coca-cola.com" data-trigger="change"data-type="text"/>
+					</div>
+                    
+					<div>
+					<input type="text" name="company" value="" id="company" placeholder="Company" data-trigger="change" data-validation-minlength="1" data-type="tet" data-required="false"/>
+					</div>
+					
+                    <div>
+					<input type="text" name="position" value="" id="position" placeholder="Position Title" data-trigger="change" data-type="text"/>
+					</div>
+                    
+	 				<p>&nbsp;</p>
+                    
+					<div>
+					<input type="text" name="address" value="" id="address" placeholder="Address" data-trigger="change" data-type="text"/>
+
+					</div>
+					
+					<div>
+					<input type="text" name="city" value="" id="city" placeholder="City" data-trigger="change" data-type="text"/>
+
+					</div>
+					
+					<div>
+					<input type="text" name="state" value="" id="state" placeholder="State" data-trigger="change" data-type="text"/>
+					</div>
+					
+					<div>
+					<input type="text" name="zip" value="" id="zip" placeholder="Zip Code" data-trigger="change" data-type="text"/>
+				
+					</div>
+					
+					<div>
+					<input type="text" name="country" value="" id="country" placeholder="Country" data-trigger="change" data-type="text"/>
+
+					</div>
+
+          <button onClick="nextStep()" style="margin-top:5%">Continue</button>
+			<!--<input class="continue" type = "submit" value = "Next!">-->
+		  </form>
+		</div>
+		</div>
+ 	<div class="column2" id="col2">
+	  <div class="step2" id="step2">
+			<div class="number">
+				<span>2</span>
+			</div>
+			<div class="title">
+				<h1>Select Image </h1>
+			</div>
+
+      </div>
+      <p>&nbsp;</p>
+	  <div id="image_container" align="center">
+          <img src="img/coke.png" />
+          <img src="img/coke2.png" />
+          <img src="img/coke_bottle.png" />
+          <img src="img/coca_cola_zero.png" />
+          <img src="img/coca_cola_diet.png" />
+          <img src="img/coca_cola.png" />
+          <img src="img/sprite_cap.png" />
+          <img src="img/fanta_cap.png" /> 
+          <img src="img/fanta_can.png" />
+          <img src="img/fanta.png" /> 
+          <img src="img/dasani.png" />
+          <img src="img/dasani_sparkling.png" /> 
+          
+	  </div>
+      <p>&nbsp;</p>
+	  <form action="" method="get" id = "img">
+        <input id="image_from_file" name="image_from_file" type="file" onClick="eraseSelection()" />
+    </form>
+	  <div class="content" id="generate">
+        <button onClick="generate()">Generate</button>
+        <!--<span class="sub" >Some random text should probably go here (instructions ?) </span>-->
+      </div>
+ 	</div>
+<div class="column3" id="col3">
+		<div class="step3" id="step3">
+			<div class="number">
+				<span>3</span>
+			</div>
+			<div class="title">
+				<h1>Copy & Paste</h1>
+			</div>
+		</div>
+        <div class="content" >
+            <iframe id="displayURL" width="680" height="180" src="">
+             <p>Your browser does not support iframes.</p>
+            </iframe>
+            
+            <p><b>Windows</b></p>
+            <p>Outlook > File > Options > Mail  > Signatures > New > Paste.</p>
+            <p><b>Mac</b></p>
+            <p>Outlook > Preferences > Signatures > Press the + button > Paste > Default Signatures > Select. </p>
+
+          </div>
+
+       </div>
+</div>
+</div>
+<script>
+var data;
+var newURL;
+var domain = "http://www.eduardovargas.engineer/signature.html?";
+
+function nextStep() {
+    var form = document.getElementById("basicInfo");
+    $(form).submit(function () {
+        data = $(this).serialize();
+        return false;
+    });
+	div = document.getElementById('col2');
+	div.style.display = "block";
+}
+
+function generate() {
+
+	div = document.getElementById('col3');
+	div.style.display = "block";
+	newURL =  domain + "img=" + img + '&' + data; //data is generated above, img on the very top
+	$('#image_name').val( $(this).attr("src") )
+	document.getElementById("displayURL").setAttribute("src" , newURL);
+}
+
+function eraseSelection() {
+	$('#image_container img').removeClass("img_border");
+}
+</script>
+</body></html>

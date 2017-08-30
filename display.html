@@ -1,0 +1,100 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="/ruxitagentjs_2fjnqrx_10095160607131029.js" data-dtconfig="rid=RID_1725027359|rpid=795410460|domain=coca-coladesignmachine.com|reportUrl=/rb_aaj43115|rt=0|tp=500,50,0,1"></script><script type="text/javascript" src="/Studio/ActiStudioSOAP/ruxitagentjs_2fjnqrx_10094160427105824.js" data-dtconfig="rid=RID_1422876754|rpid=-1860672295|domain=coca-coladesignmachine.com|reportUrl=/Studio/ActiStudioSOAP/rb_aaj43115|rt=0|tp=500,50,0,1"></script><script type="text/javascript" src="/Studio/ActiStudioSOAP/ruxitagentjs_2fjnqrx_10094160427105824.js" data-dtconfig="rid=RID_1422876754|rpid=-683935799|domain=coca-coladesignmachine.com|reportUrl=/Studio/ActiStudioSOAP/rb_aaj43115|rt=0|tp=500,50,0,1"></script><style type="text/css">
+    body,#bodyTable {height: 100% !important;width: 100% !important;margin: 0;padding: 0;}
+    img,a img {border: 0;outline: none;text-decoration: none;}
+    .imageFix {display: block;}
+    table,td {border-collapse: collapse;}
+	nobr {display: inline;}
+  </style>
+</head>
+<body style="height: 100% !important;width: 100% !important;margin: 0;padding: 0">
+
+
+  <table cellspacing="0" cellpadding="0" width="521" border="0" style="font-family:arial;line-height:17px;vertical-align:top;font-size:12px;border-collapse:collapse;color:#000">
+    <tbody>
+  	    <tr>
+        <td colspan='4' height='96' style='text-align:left;border-collapse:collapse;padding-bottom:17px;padding-left:13px'>
+        <img id="logo" src=''  alt='' style='border: 0; outline: none; text-decoration: none; background-color: #000000; layer-background-color: #000000;'/>
+        </td>
+        </tr>
+      <tr>
+        <td width="193" style="vertical-align:top;border-collapse:collapse;padding:0 0 0 12px">
+          <div style="font-weight:bold;color:#DE0B1C;display:block;white-space:nowrap">
+          <a id="name"></a>
+          </div>            
+          <div style='white-space:nowrap'><a id="company"></a></div>  
+          <div style='white-space:nowrap'><a id="position"></a></div>         
+          <div style="white-space:nowrap">
+          <a><a id="email"></a></a></div>
+  		  <div style='white-space:nowrap'>
+          <a id="phone"></a></a>
+          </div>
+        </td>
+        <td width="328" style="vertical-align:top;border-collapse:collapse;padding:0 0 0 13px">
+            <div style="white-space:nowrap"><a id="address"></a></div>
+            <div style='white-space:nowrap'><a id="city_State"></a></div>
+            <div style='white-space:nowrap'><a id="zip"></a></div>
+            <div style='white-space:nowrap'><a id="country"></a></div>
+      </tr>
+      
+      <tr>
+       <td colspan='4'>
+       </td>
+      </tr>
+    </tbody>
+</table>
+
+<script>
+function getUrlVars(sParam)
+{
+    var rawURL = window.location.search.substring(1);
+	var pageURL =rawURL.split('+').join(' ');
+	var uri_dec = decodeURIComponent(pageURL);
+
+    var sURLVariables = uri_dec.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+		
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {	
+			
+            return sParameterName[1];
+        }
+    }
+}
+
+var first = getUrlVars('first');
+var last = getUrlVars('last');
+var phone = getUrlVars('phone');
+var email = getUrlVars('email');
+var company = getUrlVars('company');
+var address = getUrlVars('address');
+var city = getUrlVars('city');
+var state = getUrlVars('state');
+var zip = getUrlVars('zip');
+var country = getUrlVars('country');
+var imgsrc = getUrlVars('img');
+var position = getUrlVars('position');
+alert(imgsrc);
+alert(company + address + city + state + zip);
+//<---------
+document.getElementById('name').innerHTML = first + " " + last;
+document.getElementById('address').innerHTML = address;
+alert(address);
+document.getElementById('city_State').innerHTML = city + ", " + state;
+document.getElementById('zip').innerHTML = zip;
+document.getElementById('phone').innerHTML = phone;
+document.getElementById('phone').setAttribute('href','tel:' + phone);
+document.getElementById('logo').setAttribute("src" , imgsrc);
+document.getElementById('position').innerHTML = position
+document.getElementById('company').innerHTML = company;
+document.getElementById('email').innerHTML = email;
+document.getElementById('email').setAttribute('href','mailto:' + email);
+document.getElementById('country').innerHTML = country;
+</script>
+
+</body>
+</html>

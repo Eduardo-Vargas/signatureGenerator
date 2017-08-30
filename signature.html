@@ -1,0 +1,95 @@
+<html>
+<head>
+</head>
+<body>
+<font style="font-family:'Century Gothic', sans-serif; font-size: 13pt; color:#333;">
+<table width="649" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="108" rowspan="5" style="border-right: 1px solid #333333;"><img src="" width="100" height="100" id="logo" border="0" align="absmiddle"></td><td width="19"></td>
+    <td colspan="6"><font style="font-weight:bolder; color:#333333; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15pt;"><a id="name"></a></font><br />
+  <font style="color:#1F497D; font-size:10pt; font-weight:bold;"><a id="">&nbsp;</a></font></td>
+  </tr>
+  <tr>
+  <td width="19"></td>
+    <td width="1"><font style="color:#336699;font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="284"><font style="color:#f40000; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14pt;font-weight:bold;"><a  id="company" style="color:#f40000; text-decoration:none;"></a></font>
+    <td width="14"><font style="color:#336699;font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="223"><font style="color:#333333; font-size:12pt;"><a id="address"></a></font></td>
+  </tr>
+  <tr>
+    <td width="19"></td>
+    <td width="1"><font style="color:#336699;font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="284"><font style="color:#455560; font-size:14pt; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:bold;"><a id="position"></a></font></td> 
+    <td width="14"><font style="color:#336699;font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="223"><font style="color:#333333; font-size:12pt;"><a id="city_State"></a></font></td> 
+  </tr>
+  <tr>
+    <td width="19"></td>
+    <td width="1"><font style="color:#336699; font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="284"><font style="color:#1F497D; font-size:16pt; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:bold;"><a href="" id="email" style="color:#999999; text-decoration:none; sty"></a></font></td> 
+    <td width="14"><font style="color:#336699;font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="223"><font style="color:#333333; font-size:12pt;"><a id="zip"></a></font></td> 
+  </tr>
+  <tr>
+    <td></td>
+    <td width="1"><font style="color:#336699;font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="284"><font style="color:#1F497D; font-size:16pt; font-weight:bold; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;"><a href="" id="phone" style="color:#999999; text-decoration:none;"></a></font></td> 
+    <td width="14"><font style="color:#336699;font-weight:bold; font-style: italic; font-size:12px;"></font></td>
+    <td width="223"><font style="color:#333333; font-size:12pt;"><a id="country"></a></font></td> 
+  </tr>
+</table>
+</font>
+
+
+<script>
+function getUrlVars(sParam)
+{
+    var rawURL = window.location.search.substring(1);
+	var pageURL =rawURL.split('+').join(' ');
+	var uri_dec = decodeURIComponent(pageURL);
+
+    var sURLVariables = uri_dec.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+		
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {	
+			
+            return sParameterName[1];
+        }
+    }
+}
+
+var first = getUrlVars('first');
+var last = getUrlVars('last');
+var phone = getUrlVars('phone');
+var email = getUrlVars('email');
+var company = getUrlVars('company');
+var address = getUrlVars('address');
+var city = getUrlVars('city');
+var state = getUrlVars('state');
+var zip = getUrlVars('zip');
+var country = getUrlVars('country');
+var imgsrc = getUrlVars('img');
+var position = getUrlVars('position');
+
+//<---------
+document.getElementById('name').innerHTML = first + " " + last;
+document.getElementById('address').innerHTML = address;
+
+document.getElementById('city_State').innerHTML = city + ", " + state;
+document.getElementById('zip').innerHTML = zip;
+document.getElementById('country').innerHTML = country;
+document.getElementById('email').innerHTML = email;
+document.getElementById('email').setAttribute('href','mailto:' + email);
+document.getElementById('company').innerHTML = company;
+
+document.getElementById('position').innerHTML = position
+document.getElementById('phone').innerHTML = phone;
+document.getElementById('phone').setAttribute('href','tel:' + phone);
+document.getElementById('logo').setAttribute("src" , imgsrc);
+</script>
+
+</body>
+</html>

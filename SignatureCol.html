@@ -1,0 +1,116 @@
+<html>
+<head>
+</head>
+<tbody>
+<table id = "sigTable" width="375" border="0" cellspacing="0" cellpadding="0">
+  <tr align="left"><td width="480" colspan=""><img width="100" nosend=1 src="" height="100" id="logo" border="0"></td></tr><tr><td>&nbsp;</td></tr><tr><td><font style="font-weight:bolder; color:#333333; font-family: Arial, sans-serif; font-size:19px;"><a id="name"></a></font></td></tr><tr><td width="284"><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif;"><a id="position"></a></font></td></tr><tr><td width="284"><font style="color:#455560; font-family:Arial, sans-serif; font-size:15px;"><a  id="division" style="color:#455560; text-decoration:none;"></a></font></td></tr><tr><td>&nbsp;</td></tr><tr><td width="284" id="adL1row" style="display:none"><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif;"><a id="adL1">Address Line 1</a></font></td></tr><tr><td width="284" id="adL2row" style="display:none"><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif;"><a id="adL2"></a></font></td></tr><tr><td width="284" id="adL3row" style="display:none"><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif;"><a id="adL3">Address Line 3</a></font></td></tr><tr><td width="284" id="adL4row" style="display:none"><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif;"><a id="adL4">Address Line 4</a></font></td></tr><tr><td>&nbsp;</td></tr><tr><td width="284" height="24" id="tRow" style="display:none"><font style="color:#455560; font-family:Arial, sans-serif; font-size:15px;font-weight:bold;"><a style="color:#455560; text-decoration:none; font-weight:bold;">T:&ensp;</a></font><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif; font-weight:bold;"><a id="t">+00 000 000 0000</a></font></td></tr><tr><td width="284"  height="24" id="mRow" style="display:none"><font style="color:#455560; font-family:Arial, sans-serif; font-size:15px;font-weight:bold;"><a style="color:#455560; text-decoration:none; font-weight:bold;">M:&ensp;</a></font><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif; font-weight:bold;"><a id="m">+00 000 000 0000</a></font></td></tr><tr><td width="284" height="24" id="fRow" style="display:none"><font style="color:#455560; font-family:Arial, sans-serif; font-size:15px;font-weight:bold;"><a style="color:#455560; text-decoration:none; font-weight:bold;">F:&ensp;</a></font><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif; font-weight:bold;"><a id="f">+00 000 000 0000</a></font></td></tr><tr><td width="284"  height="24"  id="eRow" style="display:none"><font style="color:#455560; font-family:Arial, sans-serif; font-size:15px;font-weight:bold;"><a style="color:#455560; text-decoration:none; font-weight:bold;">E:&ensp;</a></font><font style="color:#455560; font-size:15px; font-family:Arial, sans-serif; font-weight:bold;"><a id="email">undefined</a></font></td></tr>
+</table>
+
+
+<script>
+function getUrlVars(sParam)
+{
+    var rawURL = window.location.search.substring(1);
+	var pageURL =rawURL.split('+').join(' ');
+	var uri_dec = decodeURIComponent(pageURL);
+
+    var sURLVariables = uri_dec.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+		
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {	
+			
+            return sParameterName[1];
+        }
+    }
+}
+
+var name = getUrlVars('full_name');
+var position = getUrlVars('position');
+var division = getUrlVars('division');
+
+var adL1 = getUrlVars('adL1');
+var adL2 = getUrlVars('adL2');
+var adL3 = getUrlVars('adL3');
+var adL4 = getUrlVars('adL4');
+
+var telephone = getUrlVars('t');
+var mobile = getUrlVars('m');
+var fax = getUrlVars('f');
+var email = getUrlVars('email');
+var imgsrc = getUrlVars('img');
+
+//<---------
+document.getElementById('name').innerHTML = name;
+document.getElementById('position').innerHTML = position
+document.getElementById('division').innerHTML = division;
+
+
+
+
+if (email == '') { 
+	document.getElementById('sigTable').deleteRow(14);
+} else {
+	document.getElementById('eRow').style.display = 'inherit';
+	document.getElementById('email').innerHTML = email;
+	document.getElementById('email').setAttribute('href','mailto:' + email);
+}
+
+if (fax == '') { 
+	document.getElementById('sigTable').deleteRow(13);
+} else {
+	document.getElementById('fRow').style.display = 'inherit';
+	document.getElementById('f').innerHTML = fax;
+	document.getElementById('f').setAttribute('href','tel:' + fax);
+}
+
+if (mobile == '') { 
+	document.getElementById('sigTable').deleteRow(12);
+} else {
+	document.getElementById('mRow').style.display = 'inherit';
+	document.getElementById('m').innerHTML = mobile;
+	document.getElementById('m').setAttribute('href','tel:' + mobile);
+}
+if (fax == '') { 
+	document.getElementById('sigTable').deleteRow(11);
+} else {
+	document.getElementById('tRow').style.display = 'inherit';
+	document.getElementById('t').innerHTML = telephone;
+	document.getElementById('t').setAttribute('href','tel:' + telephone);
+}
+
+if (adL4 == '') { 
+	document.getElementById('sigTable').deleteRow(9);
+} else {
+	document.getElementById('adL4row').style.display = 'inherit';
+	document.getElementById('adL4').innerHTML = adL4;
+}
+
+if (adL3 == '') { 
+	document.getElementById('sigTable').deleteRow(8);
+} else {
+	document.getElementById('adL3row').style.display = 'inherit';
+	document.getElementById('adL3').innerHTML = adL3;
+}
+
+if (adL2 == '') { 
+	document.getElementById('sigTable').deleteRow(7);
+} else {
+	document.getElementById('adL2row').style.display = 'inherit';
+	document.getElementById('adL2').innerHTML = adL2;
+}
+
+if (adL1 == '') { 
+	document.getElementById('sigTable').deleteRow(6);
+} else {document.getElementById('adL1row').style.display = 'inherit';
+	document.getElementById('adL1').innerHTML = adL1; 
+}
+
+document.getElementById('logo').setAttribute("src" , imgsrc);
+</script>
+
+
+</tbody>
+</html>
